@@ -1,0 +1,17 @@
+[
+	{
+		"_id": "67rdca3eeb7f6fgeed471198",
+		"name": "Смартфоны",
+		"identifier": "smartphones"
+	},
+	{
+		"_id": "67rdca3eeb7f6fgeed471199",
+		"name": "Ноутбуки",
+		"identifier": "notebooks"
+	},
+	{
+		"_id": "67rdca3eeb7f6fgeed471110",
+		"name": "Холодильники",
+		"identifier": "refrigerators"
+	}
+]

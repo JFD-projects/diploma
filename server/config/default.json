@@ -1,0 +1,8 @@
+{
+	"port": 8080,
+	"mongoUri": "mongodb+srv://tatianka:T123456@cluster0.wlbh5.mongodb.net/app?retryWrites=true&w=majority",
+	"accessSecret": "super secret from back",
+	"refreshSecret": "super refresh secret from back",
+	"accessSecretAdmin": "admin secret",
+	"refreshSecretAdmin": "admin refresh secret"
+}
