@@ -1,13 +1,14 @@
 import React from 'react';
-import { Rate, Image, Badge, Row, Col, Layout, Button } from 'antd';
-import { useParams } from 'react-router-dom/';
-import { useSelector } from 'react-redux';
-import { getDeviceById } from './../../store/devices';
-import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineCheck, AiFillHeart } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
-import { addToBasket, getProductInBasket, removeFromBasket } from './../../store/basket';
-import { addDeviceToFavorite, getFavoriteProduct } from '../../store/user';
-import { removeDeviceFromFavorite } from './../../store/user';
+import { Rate, Image, Badge, Row, Col, Layout, Button } from 'antd';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineCheck, AiFillHeart } from 'react-icons/ai';
+
+import { getDeviceById } from '../../../store/devices';
+import { addToBasket, getProductInBasket, removeFromBasket } from '../../../store/basket';
+import { addDeviceToFavorite, getFavoriteProduct } from '../../../store/user';
+import { removeDeviceFromFavorite } from '../../../store/user';
 
 const DeviceCard = () => {
 	const { deviceId } = useParams();

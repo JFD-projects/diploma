@@ -41,7 +41,7 @@ const BasketForm = ({ onSubmit }) => {
 	const isValid = Object.keys(errors).length === 0;
 
 	return (
-		<Form onFinish={() => onSubmit(data)} className='pt-3 px-5'>
+		<Form onFinish={() => onSubmit(data)} className='pt-3'>
 			<h5>Ваши контактные данные</h5>
 			<div className='d-flex flex-row'>
 				<TextField name='name' placeholder='Ваше имя' value={data.name} onChange={handleChange} error={errors.name} />

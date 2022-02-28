@@ -18,22 +18,21 @@ const AppLoader = ({ children }) => {
 	useEffect(() => {
 		dispatch(loadCategoriesList());
 		dispatch(loadBrandsList());
-		
+		console.log(isAdminAuth)
 		if (isUserAuth) {
 			dispatch(loadCurrentUserData());
 		} else if(isAdminAuth) {
+			console.log(isAdminAuth)
 			dispatch(currentAdminData());
 		}
 	}, []);
-
-	
 
 	if (isCategoriesLoaded) {
 		return <Spin size='large' />;
 	}
 	return children;
 };
-AppLoader.propTypes = {
-	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-};
+// AppLoader.propTypes = {
+// 	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+// };
 export default AppLoader;

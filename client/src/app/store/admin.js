@@ -4,7 +4,6 @@ import localStorageService from "../services/localStorage.service";
 import adminService from "../services/admin.service";
 import { generateAuthError } from "../utils/generateAuthError";
 import history from "../utils/history";
-import { toast } from 'react-toastify';
 
 const initialState = localStorageService.getAccessToken() && localStorageService.getAdmin()
     ? {

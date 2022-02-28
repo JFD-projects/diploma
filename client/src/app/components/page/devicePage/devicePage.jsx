@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Layout, Row } from 'antd';
 
 import FilterBar from '../../ui/filter/filterBar';
-import DeviceList from '../../ui/deviceList';
+import DeviceList from '../../ui/device/deviceList';
 import Pages from '../../common/Pages';
 
 const DevicePage = () => {

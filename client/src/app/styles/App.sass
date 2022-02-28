@@ -1,0 +1,34 @@
+
+@import variables
+
+@mixin btn ($bg-color, $b-color, $color)
+	background-color: $bg-color!important
+	border-color: $b-color!important
+	color: $color!important
+
+.main
+	height: 100vh
+	&-admin
+		flex-direction: row!important
+		height: 100vh
+
+
+.btn
+	&-active
+		@include btn($greenColor, $greenColor, $whiteColor)
+		&:hover
+			@include btn($logoColor, $logoColor, $whiteColor)
+	&-default
+		@include btn($whiteColor, $greenColor, $greenColor)
+		&:hover
+			@include btn($greenColor, $greenColor, $whiteColor)
+	&-sort
+		@include btn($greenColor, $greenColor, $whiteColor)
+
+.text
+	&-green
+		color: $greenColor
+	&-main
+		color: $textColor
+	&-logo
+		color: $logoColor

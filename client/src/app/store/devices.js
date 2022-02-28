@@ -2,7 +2,7 @@ import { createAction, createSlice } from '@reduxjs/toolkit';
 import deviceService from './../services/device.service';
 import brandService from './../services/brand.service';
 import history from "../utils/history";
-import { toast } from 'react-toastify';
+import { openNotification } from '../components/common/notification';
 
 const initialState = {
 	entities: [],
@@ -98,7 +98,7 @@ export const updateDevice = (payload) => async (dispatch) => {
         const data = await deviceService.update(payload);
         dispatch(deviceUpdateSuccessed(data));
         history.push(`/device`);
-		toast(`${data.name} обновлен!`, {position: "bottom-right"})
+		openNotification({type: 'success', message:`${data.name} обновлен!`});
     } catch (error) {
         dispatch(deviceUpdateFailed(error.message));
     }
@@ -109,7 +109,7 @@ export const createDevice = payload => async dispatch => {
 	try {
 		const data = await deviceService.post(payload);
 		dispatch(deviceCreated(data));
-		toast(`${data.name} добавлен!`, {position: "bottom-right"})
+		openNotification({type: 'success', message:`${data.name} добавлен!`});
 	} catch (error) {
 		dispatch(deviceCreateRequestFailed());
 	}

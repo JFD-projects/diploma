@@ -2,9 +2,9 @@ import React from 'react';
 import { Spin, Row } from 'antd';
 import { useSelector } from 'react-redux';
 
-import { getDevicesLoadingStatus } from '../../store/devices';
+import { getDevicesLoadingStatus } from '../../../store/devices';
 import DeviceItem from './deviceItem';
-import { getFilteredDevices } from './../../store/devices';
+import { getFilteredDevices } from '../../../store/devices';
 
 const DeviceList = () => {
 	const isLoading = useSelector(getDevicesLoadingStatus());

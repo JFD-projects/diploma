@@ -6,6 +6,7 @@ import { getAdminLoadingStatus } from '../../../store/admin';
 import AdminProfile from '../../ui/admin/adminProfile';
 
 const AdminPage = () => {
+	// const {}
 	const isAdminLoadingStatus = useSelector(getAdminLoadingStatus());
 	return !isAdminLoadingStatus ? <AdminProfile /> : <Spin size='large' />;
 };

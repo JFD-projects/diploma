@@ -1,17 +1,21 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom/';
 import { Layout, Card } from 'antd';
-import LoginForm from '../components/ui/auth/loginForm';
-import RegisterForm from '../components/ui/auth/registerForm';
-import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../utils/routeConsts';
+
+import './auth.sass'
+import LoginForm from '../../components/ui/auth/loginForm';
+import RegisterForm from '../../components/ui/auth/registerForm';
+import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/routeConsts';
+
+const {Content} = Layout;
 
 const Login = () => {
 	const location = useLocation();
 	const isLogin = location.pathname === LOGIN_ROUTE;
 
 	return (
-		<Layout className='d-flex justify-content-center align-items-center flex-column pt-5'>
-			<Card style={{ width: 600 }} className='p-2'>
+		<Content className='auth-content'>
+			<Card className='auth-form'>
 				{isLogin ? (
 					<>
 						<LoginForm />
@@ -31,7 +35,7 @@ const Login = () => {
 					</div>
 				)}
 			</Card>
-		</Layout>
+		</Content>
 	);
 };
 

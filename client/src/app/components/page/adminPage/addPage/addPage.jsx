@@ -1,8 +1,8 @@
 import React from 'react';
 import { Tabs } from 'antd';
-import DevicePageAdd from './../devicePage/devicePageAdd';
-import AddBrands from './../../ui/admin/addBrands';
-import AddCategory from './../../ui/admin/addCategory';
+import DevicePageAdd from '../../devicePage/devicePageAdd';
+import AddBrands from '../../../ui/admin/addBrands';
+import AddCategory from '../../../ui/admin/addCategory';
 
 const { TabPane } = Tabs;
 const AddPage = () => {

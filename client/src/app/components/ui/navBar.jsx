@@ -23,7 +23,7 @@ const NavBar = () => {
 
 	return (
 		<Header className='bg-light'>
-			<Menu className='bg-light h-100' mode='horizontal'>
+			<Menu className='bg-light h-100 al-center' mode='horizontal'>
 				<Menu.Item key='0'>
 					<Link to={SHOP_ROUTE} className='logo h-100'>
 						<img src={Logo} alt='devicestore' />

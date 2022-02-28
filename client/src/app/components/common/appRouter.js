@@ -8,14 +8,14 @@ import { getUserIsLoggedIn } from '../../store/user';
 import { getIsAdminLoggedIn } from '../../store/admin';
 
 const AppRouter = () => {
-	const isAuth = useSelector(getUserIsLoggedIn());
+	const isUserAuth = useSelector(getUserIsLoggedIn());
 	const isAdminAuth = useSelector(getIsAdminLoggedIn());
 	return (
 		<Switch>
 			{isAdminAuth && adminRoutes.map(({ path, Component }) => <Route key={path} path={path} component={Component} exact />)}
-			{isAuth && authRoutes.map(({ path, Component }) => <Route key={path} path={path} component={Component} exact />)}
-			{publicRoutes.map(({ path, Component, admin }) => {
-				if (!isAdminAuth ) return <Route key={path} path={path} component={Component} exact />;
+			{isUserAuth && authRoutes.map(({ path, Component }) => <Route key={path} path={path} component={Component} exact />)}
+			{publicRoutes.map(({ path, Component }) => {
+				if (!isAdminAuth) return <Route key={path} path={path} component={Component} exact />;
 			})}
 			<Redirect to={SHOP_ROUTE} />
 		</Switch>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getCurrentUserData } from './../../../store/user';
+import { getCurrentUserData } from '../../../store/user';
 import UserProfileInformation from './userProfileInformation';
 import { Layout, Row,Col, Tabs, Image } from 'antd';
-import Favorite from './../../../layouts/favorite';
+import Favorite from '../../../layouts/favorite/favorite';
 
 const { TabPane } = Tabs;
 
@@ -16,7 +16,7 @@ const UserProfile = () => {
 				<Col md={4} lg={4}>
 					<Image className='w-100 user-img' src={user.image} alt={user.name} />
 				</Col>
-				<Col md={8} lg={8}>
+				<Col md={20} lg={20}>
 					<Tabs type='card' className='mb-3'>
 						<TabPane tab='Профиль' key='profile' eventKey='profile' >
 							<UserProfileInformation user={user} />

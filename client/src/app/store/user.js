@@ -4,8 +4,7 @@ import localStorageService from '../services/localStorage.service';
 import userService from '../services/user.service';
 import { generateAuthError } from '../utils/generateAuthError';
 import history from '../utils/history';
-import { toast } from 'react-toastify';
-import { currentAdminData } from './admin';
+import { openNotification } from '../components/common/notification';
 
 const favoritesItems = (localStorage.getItem('favorites') && JSON.parse(localStorage.getItem('favorites'))) || [];
 
@@ -74,7 +73,7 @@ const userSlice = createSlice({
 		},
 		userFavoriteDeviceDeleted: (state, action) => {
 			state.favoritesList = state.favoritesList.filter(p => p._id !== action.payload.id);
-			action.payload.isAuth && localStorage.setItem('basket', JSON.stringify(state.favoritesList));
+			action.payload.isAuth && localStorage.setItem('favorites', JSON.stringify(state.favoritesList));
 		},
 	},
 });
@@ -162,14 +161,14 @@ export const addDeviceToFavorite = item => (dispatch, getState) => {
 	const productExist = products.find(product => product._id === item._id);
 	if (!productExist) {
 		dispatch(userFavoriteDeviceAdded({ product: item, isAuth }));
-		toast('product added to favorite!');
+		openNotification({type: 'success', message: 'product added to favorite!'});
 	}
 };
 
 export const removeDeviceFromFavorite = id => (dispatch, getState) => {
 	const isAuth = getState().user.isLoggedIn;
 	dispatch(userFavoriteDeviceDeleted({ id, isAuth }));
-	toast('product removed from cart!');
+	openNotification({type: 'success', message: 'product removed from cart!'});
 };
 
 export const getCurrentUserData = () => state => state.user.entities;

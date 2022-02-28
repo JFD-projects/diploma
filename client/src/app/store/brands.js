@@ -1,5 +1,6 @@
-import { toast } from 'react-toastify';
+
 import brandService from './../services/brand.service';
+import { openNotification } from '../components/common/notification';
 
 const { createSlice, createAction } = require("@reduxjs/toolkit");
 
@@ -50,7 +51,7 @@ export const createBrand = payload => async dispatch => {
 	try {
 		const data = await brandService.post(payload);
 		dispatch(brandCreated(data));
-		toast(`${data.name} добавлен!`, {position: "bottom-right"})
+		openNotification({type: 'success', message:`${data.name} добавлен!`});
 	} catch (error) {
 		dispatch(brandCreateRequestFailed());
 	}

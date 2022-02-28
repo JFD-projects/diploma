@@ -1,4 +1,6 @@
-import { toast } from 'react-toastify';
+import { openNotification } from '../components/common/notification';
+import history from '../utils/history';
+
 const { createSlice } = require("@reduxjs/toolkit");
 
 const basketItems = (localStorage.getItem("basket") && JSON.parse(localStorage.getItem("basket"))) || []
@@ -44,7 +46,7 @@ export const addToBasket = (item) => (dispatch, getState) => {
 	const productExist = products.find(product => product._id === item._id )
 	if(!productExist){
 		dispatch(basketProductAdded({product: item, isAuth}));
-		toast("product added to cart!")
+		openNotification({type: 'success', message:"product added to cart!"})
 	}
 }
 
@@ -56,12 +58,19 @@ export const changeProductAmount = (product) => (dispatch, getState) => {
 export const removeFromBasket = (id) => (dispatch, getState) => {
 	const isAuth = getState().user.isLoggedIn;
 	dispatch(basketProductDeleted({id, isAuth}));
-	toast("product removed from cart!")
+	openNotification({type: 'success', message:"product removed from cart!"});
 }
 
 export const clearBasket = () => (dispatch, getState) => {
 	const isAuth = getState().user.isLoggedIn;
 	dispatch(basketCleaned({isAuth}));
+}
+
+export const sendToOrders = ({data, redirect}) => (dispatch, getState) => {
+	openNotification({type: 'success', message: 'thank you for order!'});
+	const isAuth = getState().user.isLoggedIn;
+	dispatch(basketCleaned({isAuth}));
+	history.push(redirect);
 }
 
 export const getBasketProducts = () => state => state.basket.entities;

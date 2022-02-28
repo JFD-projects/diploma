@@ -5,12 +5,12 @@ import { Col, Card, Image, Badge } from 'antd';
 import { AiOutlineHeart, AiOutlineShoppingCart, AiFillDelete, AiFillHeart, AiOutlineSetting } from 'react-icons/ai';
 import { BsFillCartCheckFill } from 'react-icons/bs';
 
-import { getCategoryById } from '../../store/categories';
-import { removeFromBasket, addToBasket, getProductInBasket } from './../../store/basket';
-import { addDeviceToFavorite, getFavoriteProduct, removeDeviceFromFavorite } from '../../store/user';
-import { getIsAdminLoggedIn } from '../../store/admin';
-import { DEVICE_ROUTE } from '../../utils/routeConsts';
-import { removeDevice } from '../../store/devices';
+import { getCategoryById } from '../../../store/categories';
+import { removeFromBasket, addToBasket, getProductInBasket } from '../../../store/basket';
+import { addDeviceToFavorite, getFavoriteProduct, removeDeviceFromFavorite } from '../../../store/user';
+import { getIsAdminLoggedIn } from '../../../store/admin';
+import { DEVICE_ROUTE } from '../../../utils/routeConsts';
+import { removeDevice } from '../../../store/devices';
 
 const DeviceItem = ({ device }) => {
 	const history = useHistory();
